@@ -50,7 +50,7 @@
         <li><a href="#credits" class="nav-link">Credits & Team</a></li>
       </ul>
 
-      <!-- Action Button -->
+      <!-- Action Buttons -->
       <div class="nav-actions">
         <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="nav-cta-btn" id="headerHeyzineBtn">
           <span>Read on Heyzine</span>
@@ -60,10 +60,50 @@
             <line x1="10" y1="14" x2="21" y2="3"></line>
           </svg>
         </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
       </div>
 
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <div class="brand-info">
+          <span class="brand-title" style="font-size: 1.25rem;">RC TCET</span>
+          <span class="brand-subtitle">VALERIE 7.1</span>
+        </div>
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#hero" class="mobile-nav-link active">The Edition</a></li>
+        <li><a href="#perspectives" class="mobile-nav-link">The 7 Perspectives</a></li>
+        <li><a href="#contents" class="mobile-nav-link">Sevenfold Atlas</a></li>
+        <li><a href="#editorial" class="mobile-nav-link">Editorial Preface</a></li>
+        <li><a href="#credits" class="mobile-nav-link">Credits & Creators</a></li>
+      </ul>
+      <div class="mobile-nav-cta">
+        <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; justify-content: center;">
+          <span>Read on Heyzine ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================================
        Hero Section: 3D Valerie 7.1 Spotlight Stage
@@ -195,7 +235,7 @@
   <!-- ========================================================================
        Section 3: The Sevenfold Atlas (Table of Contents)
        ======================================================================== -->
-  <section class="contents-section" id="contents" style="padding: 100px 0 110px; position: relative;">
+  <section class="contents-section" id="contents">
     <div class="container">
       
       <div class="section-header">
@@ -204,29 +244,29 @@
         </div>
         <h2 class="section-title">The Sevenfold Atlas</h2>
         <p class="section-subtitle">
-          Explore the chronological chapters and narratives of Valerie 7.1. Click any entry to open the flipbook directly.
+          Explore the chronological chapters and narratives of Valerie 7.1. Click any entry to jump straight to that page in the flipbook.
         </p>
       </div>
 
-      <!-- Table of Contents Layout -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; max-width: 1080px; margin: 0 auto 50px;">
+      <!-- Responsive Table of Contents Grid Container -->
+      <div class="toc-grid-container">
         
         <!-- Left Column: Chapters List -->
-        <div class="toc-list-card" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-card); border-radius: 24px; padding: 36px 32px; box-shadow: var(--shadow-sm);">
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-title); margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);">
+        <div class="toc-column-card">
+          <h3 class="toc-card-title">
             Chapters & Foundations
           </h3>
-          <ul id="tocListLeft" style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+          <ul id="tocListLeft" class="toc-list">
             <!-- Rendered by js/app.js -->
           </ul>
         </div>
 
         <!-- Right Column: Chapters List & Highlights -->
-        <div class="toc-list-card" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-card); border-radius: 24px; padding: 36px 32px; box-shadow: var(--shadow-sm);">
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-title); margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);">
+        <div class="toc-column-card">
+          <h3 class="toc-card-title">
             Chronicles & Epilogue
           </h3>
-          <ul id="tocListRight" style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+          <ul id="tocListRight" class="toc-list">
             <!-- Rendered by js/app.js -->
           </ul>
         </div>
@@ -265,11 +305,11 @@
             Brought to life by the Bulletin and Editorial Directorate of RC TCET, this edition embodies the essence of <em>Meraki</em> — pouring soul, creativity, and love into every story, from assignment vivas to late-night club room sessions.
           </p>
           <div class="editors-desk-signoff">
-            <div>
+            <div class="signoff-left">
               <div class="signoff-name" id="signoffName">Editorial Directorate • MERAKI 2024–25</div>
               <div class="signoff-club" id="signoffClub">Rotaract Club of TCET (RID 3141)</div>
             </div>
-            <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 22px; font-size: 0.9rem;">
+            <a href="https://heyzine.com/flip-book/33f2b2b6b6.html#page/8" target="_blank" rel="noopener noreferrer" class="btn-secondary signoff-btn">
               <span>Read Preface in Flipbook ↗</span>
             </a>
           </div>
@@ -295,22 +335,22 @@
       </div>
 
       <!-- Core Leadership Grid (With Real Photos) -->
-      <div class="team-grid" id="teamGrid" style="margin-bottom: 45px;">
+      <div class="team-grid" id="teamGrid">
         <!-- Rendered dynamically by js/app.js -->
       </div>
 
       <!-- Supporting Team Card -->
-      <div class="supporting-team-banner" style="max-width: 680px; margin: 0 auto; text-align: center; background: var(--bg-surface-elevated); border: 1px solid var(--border-card); border-radius: 20px; padding: 28px 24px; box-shadow: var(--shadow-sm);">
-        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--gold-dark); margin-bottom: 12px; letter-spacing: 0.04em;">
+      <div class="supporting-team-banner">
+        <h4 class="supporting-team-title">
           Supporting Team
         </h4>
-        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 1.05rem; font-weight: 600; color: var(--text-title);">
-          <span style="display: inline-flex; align-items: center; gap: 8px;">
-            <span style="color: var(--gold-primary);">✦</span>
+        <div class="supporting-team-members">
+          <span class="supporting-member-pill">
+            <span class="gold-sparkle">✦</span>
             <span>Rtr. Shristi Vishwakarma</span>
           </span>
-          <span style="display: inline-flex; align-items: center; gap: 8px;">
-            <span style="color: var(--gold-primary);">✦</span>
+          <span class="supporting-member-pill">
+            <span class="gold-sparkle">✦</span>
             <span>Rtr. Anubhav Prasad</span>
           </span>
         </div>

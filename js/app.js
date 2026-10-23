@@ -5,9 +5,10 @@
  * Implements:
  * 1. 3D Spotlight Book Physics with smooth lerp and glare tracking
  * 2. Dynamic rendering of The 7 Arched Perspectives with exact Heyzine #page/X links
- * 3. The Sevenfold Atlas with specific Heyzine #page/X deep links
+ * 3. The Sevenfold Atlas with specific Heyzine #page/X deep links (+3 offset)
  * 4. Credits Section with Real Photos
  * 5. Robust IntersectionObserver Scroll-Spy
+ * 6. Mobile Navigation Drawer (Open, Close, Backdrop Click, Touch navigation)
  */
 
 (function () {
@@ -25,6 +26,13 @@
   const tocListRight = document.getElementById('tocListRight');
   const teamGrid = document.getElementById('teamGrid');
   const navLinks = document.querySelectorAll('.nav-link');
+
+  // Mobile Drawer Elements
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
   /* ==========================================================================
      1. Sync URLs & Render Data
@@ -164,11 +172,21 @@
      ========================================================================== */
   function initScrollSpy() {
     const sections = document.querySelectorAll('section[id]');
-    if (!sections.length || !navLinks.length) return;
+    if (!sections.length) return;
 
+    // Desktop nav link click
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    // Mobile nav link click
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileNav();
+        mobileNavLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
       });
     });
@@ -183,7 +201,17 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const currentId = entry.target.getAttribute('id');
+          // Update desktop links
           navLinks.forEach(link => {
+            const href = link.getAttribute('href').replace('#', '');
+            if (href === currentId) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+          // Update mobile links
+          mobileNavLinks.forEach(link => {
             const href = link.getAttribute('href').replace('#', '');
             if (href === currentId) {
               link.classList.add('active');
@@ -199,7 +227,38 @@
   }
 
   /* ==========================================================================
-     4. Header Scrolled Styling
+     4. Mobile Navigation Drawer Controller
+     ========================================================================== */
+  function openMobileNav() {
+    if (!mobileNavDrawer) return;
+    mobileNavDrawer.classList.add('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'false');
+    if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileNav() {
+    if (!mobileNavDrawer) return;
+    mobileNavDrawer.classList.remove('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'true');
+    if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  function initMobileNav() {
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileNav);
+    if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+    if (mobileNavBackdrop) mobileNavBackdrop.addEventListener('click', closeMobileNav);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+        closeMobileNav();
+      }
+    });
+  }
+
+  /* ==========================================================================
+     5. Header Scrolled Styling
      ========================================================================== */
   function handleWindowScroll() {
     if (window.scrollY > 30) {
@@ -211,12 +270,13 @@
   window.addEventListener('scroll', handleWindowScroll, { passive: true });
 
   /* ==========================================================================
-     5. Initialization
+     6. Initialization
      ========================================================================== */
   function init() {
     syncMagazineData();
     initBookPhysics();
     initScrollSpy();
+    initMobileNav();
     handleWindowScroll();
   }
 
