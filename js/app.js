@@ -142,27 +142,81 @@
     let currentRotateY = 0;
     let isHovered = false;
 
-    spotlightBook.addEventListener('mousemove', (e) => {
-      const rect = spotlightBook.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const normX = (x / rect.width) * 2 - 1;
-      const normY = (y / rect.height) * 2 - 1;
+    let closeTimer = null;
 
-      targetRotateY = normX * 22;
-      targetRotateX = -normY * 20;
-      isHovered = true;
-
-      const glare = spotlightBook.querySelector('.book-glare');
-      if (glare) {
-        glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.45) 0%, rgba(197,155,75,0.2) 40%, transparent 70%)`;
+    function openSpread() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
       }
-    });
+      if (window.innerWidth > 860) {
+        spotlightBook.classList.add('is-open');
+      }
+    }
 
-    spotlightBook.addEventListener('mouseleave', () => {
-      targetRotateX = -3;
-      targetRotateY = 14;
-      isHovered = false;
+    function scheduleCloseSpread() {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        targetRotateX = -3;
+        targetRotateY = 14;
+        isHovered = false;
+        spotlightBook.classList.remove('is-open', 'is-force-open');
+      }, 280); // 280ms grace window eliminates all boundary/corner flicker
+    }
+
+    const stage = document.querySelector('.hero-spotlight-stage');
+
+    if (stage) {
+      stage.addEventListener('mousemove', (e) => {
+        openSpread();
+        const isDesktop = window.innerWidth > 860;
+        const rect = stage.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const normX = (x / rect.width) * 2 - 1;
+        const normY = (y / rect.height) * 2 - 1;
+
+        if (isDesktop) {
+          targetRotateY = normX * 10;
+          targetRotateX = -normY * 7;
+        } else {
+          targetRotateY = normX * 16;
+          targetRotateX = -normY * 14;
+        }
+        isHovered = true;
+
+        const glare = spotlightBook.querySelector('.book-glare');
+        if (glare) {
+          glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.45) 0%, rgba(197,155,75,0.2) 40%, transparent 70%)`;
+        }
+      });
+
+      stage.addEventListener('mouseenter', openSpread);
+      stage.addEventListener('mouseleave', scheduleCloseSpread);
+    }
+
+    // Direct listener on spotlightBook as well to reinforce zero-glitch hover
+    spotlightBook.addEventListener('mouseenter', openSpread);
+    spotlightBook.addEventListener('mousemove', openSpread);
+    spotlightBook.addEventListener('mouseleave', scheduleCloseSpread);
+
+    // On laptop, clicking Credits & Team smoothly navigates to hero and flips book open
+    document.querySelectorAll('a[href="#credits"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth > 860) {
+          e.preventDefault();
+          const hero = document.getElementById('hero');
+          if (hero) {
+            hero.scrollIntoView({ behavior: 'smooth' });
+          }
+          if (spotlightBook) {
+            spotlightBook.classList.add('is-force-open');
+            setTimeout(() => {
+              spotlightBook.classList.remove('is-force-open');
+            }, 5500);
+          }
+        }
+      });
     });
 
     function animateBook() {

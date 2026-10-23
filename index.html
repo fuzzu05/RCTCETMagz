@@ -29,11 +29,7 @@
       <!-- Brand Emblem & Title -->
       <a href="#hero" class="brand-logo" aria-label="VALERIE 7.1 Home">
         <div class="brand-emblem">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-            <line x1="16" y1="8" x2="2" y2="22"></line>
-            <line x1="17.5" y1="15" x2="9" y2="15"></line>
-          </svg>
+          <img src="assets/logo_rctcet.png" alt="RC TCET Official Phoenix Logo" class="brand-logo-img">
         </div>
         <div class="brand-info">
           <span class="brand-title">RC TCET</span>
@@ -79,9 +75,14 @@
     <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
     <div class="mobile-nav-panel">
       <div class="mobile-nav-header">
-        <div class="brand-info">
-          <span class="brand-title" style="font-size: 1.25rem;">RC TCET</span>
-          <span class="brand-subtitle">VALERIE 7.1</span>
+        <div class="brand-logo">
+          <div class="brand-emblem" style="width: 38px; height: 38px;">
+            <img src="assets/logo_rctcet.png" alt="RC TCET Official Phoenix Logo" class="brand-logo-img">
+          </div>
+          <div class="brand-info">
+            <span class="brand-title" style="font-size: 1.25rem;">RC TCET</span>
+            <span class="brand-subtitle">VALERIE 7.1</span>
+          </div>
         </div>
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -169,23 +170,177 @@
           </div>
         </div>
 
-        <!-- Right Column: 3D Interactive Physical Book Showcase -->
+        <!-- Right Column: 3D Interactive Physical Book Showcase with Flipbook on Hover -->
         <div class="hero-spotlight-stage">
-          <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="spotlight-book-wrapper" id="spotlightBook" title="Click to open VALERIE 7.1 on Heyzine">
+          <div class="book-hover-hint">
+            <span class="hint-sparkle">✦</span>
+            <span class="hint-text">Hover to Flip Open • 3D Editorial Spread</span>
+          </div>
+
+          <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="spotlight-book-wrapper" id="spotlightBook" title="VALERIE 7.1 — Hover to browse team • Click to open Heyzine flipbook">
             <div class="spotlight-book-glow"></div>
             
             <div class="spotlight-book">
               <!-- Physical Book Spine for 3D Depth -->
               <div class="book-spine"></div>
               
-              <!-- Front Cover with the User's Real Valerie Image -->
-              <div class="book-front">
-                <img src="assets/covers/cover_valerie.jpg" alt="VALERIE 7.1 Magazine Cover - RC TCET" id="valerieHeroCover">
-                <div class="book-glare"></div>
-              </div>
-
               <!-- Page edges -->
               <div class="book-pages-right"></div>
+
+              <!-- Base Inside Right Page (Revealed when open) -->
+              <div class="book-page-right-base">
+                <div class="spread-page-content right-page-content">
+                  <div class="spread-emblem-header">
+                    <img src="assets/logo_rctcet.png" alt="RC TCET Phoenix" class="spread-phoenix-logo">
+                    <div class="spread-club-title">RC TCET</div>
+                    <div class="spread-district-tag">RID 3141 • MERAKI PRESS</div>
+                  </div>
+
+                  <div class="spread-divider">
+                    <span>✦</span>
+                    <span class="divider-label">Supporting Team</span>
+                    <span>✦</span>
+                  </div>
+
+                  <div class="spread-supporting-list">
+                    <div class="spread-member-tag">
+                      <span class="gold-star">✦</span>
+                      <span>Rtr. Fuzail Aqdas Khan</span>
+                    </div>
+                    <div class="spread-member-tag">
+                      <span class="gold-star">✦</span>
+                      <span>Rtr. Shristi Vishwakarma</span>
+                    </div>
+                    <div class="spread-member-tag">
+                      <span class="gold-star">✦</span>
+                      <span>Rtr. Anubhav Prasad</span>
+                    </div>
+                  </div>
+
+                  <div class="spread-flipbook-action">
+                    <span class="spread-action-btn">
+                      <span>Read on Heyzine</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                    </span>
+                    <span class="spread-page-no">Page 51 • Credits</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fluttering Interior Leaves (5 intermediate pages) -->
+              <div class="book-leaf book-leaf-1">
+                <div class="leaf-face leaf-front">
+                  <div class="faint-leaf-content">
+                    <span class="faint-kicker">Perspective 01</span>
+                    <h4>Our World in Colour</h4>
+                    <span class="faint-page">Page 06</span>
+                  </div>
+                </div>
+                <div class="leaf-face leaf-back"></div>
+              </div>
+
+              <div class="book-leaf book-leaf-2">
+                <div class="leaf-face leaf-front">
+                  <div class="faint-leaf-content">
+                    <span class="faint-kicker">Perspective 03</span>
+                    <h4>The Mystery of Petra</h4>
+                    <span class="faint-page">Page 10</span>
+                  </div>
+                </div>
+                <div class="leaf-face leaf-back"></div>
+              </div>
+
+              <div class="book-leaf book-leaf-3">
+                <div class="leaf-face leaf-front">
+                  <div class="faint-leaf-content">
+                    <span class="faint-kicker">Perspective 04</span>
+                    <h4>Beyond the Summit</h4>
+                    <span class="faint-page">Page 17</span>
+                  </div>
+                </div>
+                <div class="leaf-face leaf-back"></div>
+              </div>
+
+              <div class="book-leaf book-leaf-4">
+                <div class="leaf-face leaf-front">
+                  <div class="faint-leaf-content">
+                    <span class="faint-kicker">Perspective 05</span>
+                    <h4>A Symphony of Stories</h4>
+                    <span class="faint-page">Page 26</span>
+                  </div>
+                </div>
+                <div class="leaf-face leaf-back"></div>
+              </div>
+
+              <div class="book-leaf book-leaf-5">
+                <div class="leaf-face leaf-front">
+                  <div class="faint-leaf-content">
+                    <span class="faint-kicker">Perspective 06</span>
+                    <h4>Many Phases, One Orbit</h4>
+                    <span class="faint-page">Page 41</span>
+                  </div>
+                </div>
+                <div class="leaf-face leaf-back"></div>
+              </div>
+
+              <!-- Credits Leaf (Flips to become the LEFT page of the open spread) -->
+              <div class="book-leaf book-leaf-credits">
+                <div class="leaf-face leaf-front">
+                  <div class="faint-leaf-content">
+                    <span class="faint-kicker">Colours of Current</span>
+                    <h4>Where the Blues Unite</h4>
+                    <span class="faint-page">Page 50</span>
+                  </div>
+                </div>
+                <div class="leaf-face leaf-back">
+                  <div class="spread-page-content left-page-content">
+                    <div class="spread-left-header">
+                      <span class="spread-badge-kicker">EDITORIAL DIRECTORATE</span>
+                      <h4 class="spread-section-title">The Creators</h4>
+                    </div>
+
+                    <!-- 2x2 Grid of 4 Editorial Leaders -->
+                    <div class="spread-creators-grid">
+                      <div class="spread-creator-mini">
+                        <img src="assets/team_juilee.png" alt="Rtr. Juilee" class="spread-creator-img">
+                        <div class="spread-creator-name">Rtr. Juilee</div>
+                        <div class="spread-creator-role">Bulletin Head</div>
+                      </div>
+                      <div class="spread-creator-mini">
+                        <img src="assets/team_hitanshi.png" alt="Rtr. Hitanshi" class="spread-creator-img">
+                        <div class="spread-creator-name">Rtr. Hitanshi</div>
+                        <div class="spread-creator-role">Design Head</div>
+                      </div>
+                      <div class="spread-creator-mini">
+                        <img src="assets/team_anushka.png" alt="Rtr. Anushka" class="spread-creator-img">
+                        <div class="spread-creator-name">Rtr. Anushka</div>
+                        <div class="spread-creator-role">Editorial Director</div>
+                      </div>
+                      <div class="spread-creator-mini">
+                        <img src="assets/team_diya.png" alt="Rtr. Diya" class="spread-creator-img">
+                        <div class="spread-creator-name">Rtr. Diya</div>
+                        <div class="spread-creator-role">Editorial Director</div>
+                      </div>
+                    </div>
+
+                    <div class="spread-page-footer-left">
+                      <span>Valerie 7.1 • Page 50</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Front Cover with Outer Face & Inner Parchment Face -->
+              <div class="book-cover-front">
+                <div class="cover-outside">
+                  <img src="assets/covers/cover_valerie.jpg" alt="VALERIE 7.1 Magazine Cover - RC TCET" id="valerieHeroCover">
+                  <div class="book-glare"></div>
+                </div>
+                <div class="cover-inside"></div>
+              </div>
 
               <!-- Floating Tag -->
               <div class="book-float-tag">
@@ -372,14 +527,11 @@
         
         <div class="footer-about">
           <div class="brand-logo" style="margin-bottom: 14px;">
-            <div class="brand-emblem" style="width: 36px; height: 36px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
-                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-                <line x1="16" y1="8" x2="2" y2="22"></line>
-              </svg>
+            <div class="brand-emblem" style="width: 44px; height: 44px;">
+              <img src="assets/logo_rctcet.png" alt="RC TCET Official Phoenix Logo" class="brand-logo-img">
             </div>
             <div class="brand-info">
-              <span class="brand-title" style="font-size: 1.2rem;">RC TCET</span>
+              <span class="brand-title" style="font-size: 1.25rem;">RC TCET</span>
             </div>
           </div>
           <p>

@@ -614,68 +614,475 @@ body {
    3D Book Spotlight (Valerie Edition)
    ========================================================================== */
 
+/* Brand Logo Image in Navbar & Footer */
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(180, 80, 10, 0.25));
+  transition: transform 0.3s ease;
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* ==========================================================================
+   3D Book Spotlight: Interactive Multi-Page Flipbook (Desktop)
+   ========================================================================== */
+
 .hero-spotlight-stage {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  perspective: 1400px;
+  perspective: 1600px;
   padding: 15px;
+  position: relative;
 }
 
+/* Generous interaction safety buffer on desktop:
+   Extends 180px to the left and 50px around so hovering the exact left corner of the open book NEVER drops out */
+@media (min-width: 861px) {
+  .hero-spotlight-stage::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    bottom: -50px;
+    left: -190px;
+    right: -60px;
+    z-index: 0;
+    pointer-events: auto;
+  }
+}
+
+/* Subtle Interactive Hover Hint Badge */
+.book-hover-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-dark);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.hint-sparkle {
+  color: var(--gold-primary);
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+/* 3D Book Stage Wrapper */
 .spotlight-book-wrapper {
   position: relative;
-  width: 320px;
-  height: 475px;
+  width: 295px;
+  height: 445px;
   transform-style: preserve-3d;
-  transition: transform 0.15s ease-out;
   cursor: pointer;
   text-decoration: none;
-  max-width: 100%;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Soft Golden Diffuse Glow Under the Book */
+/* Golden Ambient Glow */
 .spotlight-book-glow {
   position: absolute;
   inset: -15px;
   border-radius: 20px;
-  background: radial-gradient(circle at center, rgba(197, 155, 75, 0.4) 0%, rgba(225, 103, 96, 0.12) 50%, transparent 75%);
+  background: radial-gradient(circle at center, rgba(197, 155, 75, 0.42) 0%, rgba(225, 103, 96, 0.12) 50%, transparent 75%);
   filter: blur(35px);
   transform: translateZ(-40px);
   z-index: -1;
-  opacity: 0.8;
-  transition: opacity 0.4s ease, filter 0.4s ease;
+  opacity: 0.85;
+  transition: opacity 0.4s ease, filter 0.4s ease, transform 0.5s ease;
 }
 
-.spotlight-book-wrapper:hover .spotlight-book-glow {
-  opacity: 1;
-  filter: blur(45px);
-}
-
-/* 3D Physical Book */
+/* The Core 3D Book Body */
 .spotlight-book {
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  border-radius: 12px;
+  border-radius: 6px 14px 14px 6px;
   box-shadow: var(--shadow-book);
 }
 
-.book-front {
+/* Hardcover Spine on Left Edge */
+.book-spine {
   position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  transform: translateZ(16px);
-  border: 1px solid rgba(197, 155, 75, 0.4);
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 100%;
+  background: linear-gradient(90deg, #E2D7C5 0%, #D2C4AE 60%, #C59B4B 100%);
+  transform: rotateY(-90deg) translateZ(13px);
+  border-radius: 4px 0 0 4px;
+  z-index: 5;
 }
 
-.book-front img {
+/* Outer Pages Edge (When Closed) */
+.book-pages-right {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  width: 22px;
+  height: calc(100% - 8px);
+  background: repeating-linear-gradient(
+    90deg,
+    #F4EFE6 0px,
+    #F4EFE6 1px,
+    #DDD4C2 1px,
+    #DDD4C2 2px
+  );
+  transform: rotateY(90deg) translateZ(11px);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   Inside Spread: Right Base Page (Supporting Team & Emblem)
+   ========================================================================== */
+
+.book-page-right-base {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px 14px 14px 4px;
+  background: #FAF7F2;
+  border: 1px solid var(--gold-border);
+  box-shadow: inset 18px 0 25px -10px rgba(60, 45, 30, 0.12);
+  transform: translateZ(2px);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.spread-page-content {
+  width: 100%;
+  height: 100%;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.right-page-content {
+  text-align: center;
+  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.95), rgba(250, 247, 242, 0.85));
+}
+
+.spread-emblem-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.spread-phoenix-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(220, 100, 20, 0.3));
+  margin-bottom: 2px;
+}
+
+.spread-club-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-title);
+  letter-spacing: 0.04em;
+}
+
+.spread-district-tag {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.spread-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  color: var(--gold-primary);
+  margin: 8px 0;
+}
+
+.divider-label {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-title);
+  letter-spacing: 0.04em;
+}
+
+.spread-supporting-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0 4px;
+}
+
+.spread-member-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-title);
+  box-shadow: 0 2px 6px rgba(60, 45, 30, 0.04);
+}
+
+.spread-member-tag .gold-star {
+  color: var(--gold-primary);
+  font-size: 0.68rem;
+}
+
+.spread-flipbook-action {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.spread-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #C59B4B, #B68A36);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(197, 155, 75, 0.35);
+}
+
+.spread-page-no {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Flipping Leaves (Intermediate fluttering pages)
+   ========================================================================== */
+
+.book-leaf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  border-radius: 4px 14px 14px 4px;
+  box-shadow: 0 4px 14px rgba(60, 45, 30, 0.08);
+  pointer-events: none;
+}
+
+.leaf-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: #FAF7F2;
+  border: 1px solid var(--border-card);
+  box-sizing: border-box;
+}
+
+.leaf-front {
+  transform: rotateY(0deg);
+  border-radius: 4px 14px 14px 4px;
+  box-shadow: inset 14px 0 20px -8px rgba(60, 45, 30, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaf-back {
+  transform: rotateY(180deg);
+  border-radius: 14px 4px 4px 14px;
+  box-shadow: inset -14px 0 20px -8px rgba(60, 45, 30, 0.1);
+}
+
+.faint-leaf-content {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.35;
+}
+
+.faint-kicker {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.faint-leaf-content h4 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--text-title);
+  margin: 6px 0;
+}
+
+.faint-page {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Left Page: Editorial Creators Spread (Back of Credits Leaf)
+   ========================================================================== */
+
+.book-leaf-credits {
+  z-index: 10;
+}
+
+.left-page-content {
+  padding: 20px 18px;
+  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.95), rgba(250, 247, 242, 0.9));
+  box-shadow: inset -16px 0 22px -8px rgba(60, 45, 30, 0.12);
+  border-radius: 14px 4px 4px 14px;
+}
+
+.spread-left-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.spread-badge-kicker {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spread-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-title);
+  margin-top: 2px;
+}
+
+/* 2x2 Compact Creators Grid on Open Left Page */
+.spread-creators-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 8px;
+}
+
+.spread-creator-mini {
+  background: #ffffff;
+  border: 1px solid var(--gold-border);
+  border-radius: 10px;
+  padding: 8px 6px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(60, 45, 30, 0.05);
+}
+
+.spread-creator-img {
+  width: 52px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--gold-border);
+  margin: 0 auto 5px;
+  display: block;
+}
+
+.spread-creator-name {
+  font-family: var(--font-serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-title);
+  line-height: 1.15;
+}
+
+.spread-creator-role {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.spread-page-footer-left {
+  text-align: center;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   Front Cover & Floating Tag
+   ========================================================================== */
+
+.book-cover-front {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg) translateZ(14px);
+  z-index: 15;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.30s, z-index 0s 0.30s;
+}
+
+.cover-outside {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotateY(0deg);
+  border-radius: 4px 14px 14px 4px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(197, 155, 75, 0.45);
+  box-shadow: 0 8px 24px rgba(60, 45, 30, 0.18);
+}
+
+.cover-outside img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.cover-inside {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotateY(180deg);
+  border-radius: 14px 4px 4px 14px;
+  background: #FAF7F2;
+  border: 1px solid var(--gold-border);
+  box-shadow: inset -18px 0 25px -10px rgba(60, 45, 30, 0.15);
 }
 
 /* Holographic Prismatic Glare */
@@ -699,44 +1106,14 @@ body {
   opacity: 1;
 }
 
-/* Spine */
-.book-spine {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 28px;
-  height: 100%;
-  background: linear-gradient(90deg, #E6DDD0 0%, #D8CDBC 60%, #C59B4B 100%);
-  transform: rotateY(-90deg) translateZ(14px);
-  border-radius: 4px 0 0 4px;
-}
-
-/* Pages */
-.book-pages-right {
-  position: absolute;
-  top: 4px;
-  right: 0;
-  width: 24px;
-  height: calc(100% - 8px);
-  background: repeating-linear-gradient(
-    90deg,
-    #F4EFE6 0px,
-    #F4EFE6 1px,
-    #DDD4C2 1px,
-    #DDD4C2 2px
-  );
-  transform: rotateY(90deg) translateZ(12px);
-  opacity: 0.85;
-}
-
-/* Float Badge on 3D Book */
+/* Float Badge on 3D Book (Fades on Open) */
 .book-float-tag {
   position: absolute;
   bottom: 20px;
   left: 18px;
   right: 18px;
   padding: 12px 18px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--gold-border);
@@ -747,6 +1124,8 @@ body {
   justify-content: space-between;
   box-shadow: 0 10px 30px rgba(60, 45, 30, 0.15);
   pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 20;
 }
 
 .book-tag-info {
@@ -779,6 +1158,150 @@ body {
   font-weight: 700;
   background: var(--gold-primary);
   color: #fff;
+}
+
+/* ==========================================================================
+   Desktop Hover Flip Animation: Cascading Page Flutter
+   ========================================================================== */
+
+/* Leaf z-index stacking when closed */
+.book-leaf-1 {
+  z-index: 2;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.25s;
+}
+.book-leaf-2 {
+  z-index: 3;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.20s;
+}
+.book-leaf-3 {
+  z-index: 4;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.15s;
+}
+.book-leaf-4 {
+  z-index: 5;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.10s;
+}
+.book-leaf-5 {
+  z-index: 6;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.05s;
+}
+.book-leaf-credits {
+  z-index: 7;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.00s;
+}
+
+/* On Desktop Hover (or .is-open / .is-force-open via Nav Link): Cascading Flutter Open */
+@media (min-width: 861px) {
+  .hero-spotlight-stage:hover .spotlight-book-wrapper,
+  .spotlight-book-wrapper:hover,
+  .spotlight-book-wrapper.is-open,
+  .spotlight-book-wrapper.is-force-open {
+    transform: translateX(145px) rotateY(-6deg) !important;
+  }
+
+  .hero-spotlight-stage:hover .book-hover-hint,
+  .spotlight-book-wrapper:hover .book-hover-hint,
+  .spotlight-book-wrapper.is-open .book-hover-hint,
+  .spotlight-book-wrapper.is-force-open .book-hover-hint {
+    opacity: 0.15;
+  }
+
+  .hero-spotlight-stage:hover .book-float-tag,
+  .spotlight-book-wrapper:hover .book-float-tag,
+  .spotlight-book-wrapper.is-open .book-float-tag,
+  .spotlight-book-wrapper.is-force-open .book-float-tag {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateZ(10px) scale(0.95);
+  }
+
+  .hero-spotlight-stage:hover .book-pages-right,
+  .spotlight-book-wrapper:hover .book-pages-right,
+  .spotlight-book-wrapper.is-open .book-pages-right,
+  .spotlight-book-wrapper.is-force-open .book-pages-right {
+    opacity: 0;
+  }
+
+  .hero-spotlight-stage:hover .spotlight-book-glow,
+  .spotlight-book-wrapper:hover .spotlight-book-glow,
+  .spotlight-book-wrapper.is-open .spotlight-book-glow,
+  .spotlight-book-wrapper.is-force-open .spotlight-book-glow {
+    transform: translateZ(-40px) scale(1.4);
+    opacity: 1;
+    filter: blur(50px);
+  }
+
+  /* Forward Cascading Flip & Left Stacking Order:
+     Cover lands at bottom (z-index: 2), leaf-credits lands on top (z-index: 20) */
+  .hero-spotlight-stage:hover .book-cover-front,
+  .spotlight-book-wrapper:hover .book-cover-front,
+  .spotlight-book-wrapper.is-open .book-cover-front,
+  .spotlight-book-wrapper.is-force-open .book-cover-front {
+    z-index: 2 !important;
+    transform: rotateY(-180deg) !important;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.00s, z-index 0s 0.00s;
+  }
+
+  .hero-spotlight-stage:hover .book-leaf-1,
+  .spotlight-book-wrapper:hover .book-leaf-1,
+  .spotlight-book-wrapper.is-open .book-leaf-1,
+  .spotlight-book-wrapper.is-force-open .book-leaf-1 {
+    z-index: 3 !important;
+    transform: rotateY(-180deg) !important;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.05s;
+  }
+
+  .hero-spotlight-stage:hover .book-leaf-2,
+  .spotlight-book-wrapper:hover .book-leaf-2,
+  .spotlight-book-wrapper.is-open .book-leaf-2,
+  .spotlight-book-wrapper.is-force-open .book-leaf-2 {
+    z-index: 4 !important;
+    transform: rotateY(-180deg) !important;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.10s;
+  }
+
+  .hero-spotlight-stage:hover .book-leaf-3,
+  .spotlight-book-wrapper:hover .book-leaf-3,
+  .spotlight-book-wrapper.is-open .book-leaf-3,
+  .spotlight-book-wrapper.is-force-open .book-leaf-3 {
+    z-index: 5 !important;
+    transform: rotateY(-180deg) !important;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.15s;
+  }
+
+  .hero-spotlight-stage:hover .book-leaf-4,
+  .spotlight-book-wrapper:hover .book-leaf-4,
+  .spotlight-book-wrapper.is-open .book-leaf-4,
+  .spotlight-book-wrapper.is-force-open .book-leaf-4 {
+    z-index: 6 !important;
+    transform: rotateY(-180deg) !important;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.20s;
+  }
+
+  .hero-spotlight-stage:hover .book-leaf-5,
+  .spotlight-book-wrapper:hover .book-leaf-5,
+  .spotlight-book-wrapper.is-open .book-leaf-5,
+  .spotlight-book-wrapper.is-force-open .book-leaf-5 {
+    z-index: 7 !important;
+    transform: rotateY(-180deg) !important;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.25s;
+  }
+
+  .hero-spotlight-stage:hover .book-leaf-credits,
+  .spotlight-book-wrapper:hover .book-leaf-credits,
+  .spotlight-book-wrapper.is-open .book-leaf-credits,
+  .spotlight-book-wrapper.is-force-open .book-leaf-credits {
+    z-index: 20 !important;
+    transform: rotateY(-180deg) !important;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.30s;
+  }
+
+  .hero-spotlight-stage:hover .book-page-right-base,
+  .spotlight-book-wrapper:hover .book-page-right-base,
+  .spotlight-book-wrapper.is-open .book-page-right-base,
+  .spotlight-book-wrapper.is-force-open .book-page-right-base {
+    z-index: 10 !important;
+  }
 }
 
 /* ==========================================================================
@@ -1318,8 +1841,32 @@ body {
   }
 }
 
+/* On Desktop/Laptops (>= 861px): Hide bottom team section because the 3D flipbook in hero showcases it */
+@media (min-width: 861px) {
+  .team-section {
+    display: none !important;
+  }
+}
+
 /* Tablets (iPad / Landscape Mobile) */
 @media (max-width: 860px) {
+  /* On mobile: keep bottom team section visible */
+  .team-section {
+    display: block !important;
+  }
+
+  /* Disable multi-page hover expansion on mobile */
+  .book-hover-hint {
+    display: none !important;
+  }
+  .book-page-right-base,
+  .book-leaf {
+    display: none !important;
+  }
+  .spotlight-book-wrapper:hover {
+    transform: none !important;
+  }
+
   /* Navigation */
   .nav-links {
     display: none;
