@@ -188,10 +188,10 @@ body {
 }
 
 .brand-title {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-family: var(--font-classical);
+  font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
   color: var(--text-title);
   line-height: 1.1;
 }
@@ -652,7 +652,7 @@ body {
     position: absolute;
     top: -50px;
     bottom: -50px;
-    left: -120px;
+    left: -100px;
     right: -60px;
     z-index: 0;
     pointer-events: auto;
@@ -796,11 +796,11 @@ body {
 }
 
 .spread-club-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-classical);
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-title);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .spread-district-tag {
@@ -822,11 +822,12 @@ body {
 }
 
 .divider-label {
-  font-family: var(--font-serif);
-  font-size: 0.82rem;
+  font-family: var(--font-classical);
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-title);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .spread-supporting-list {
@@ -981,9 +982,10 @@ body {
 }
 
 .spread-section-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-classical);
   font-size: 1.15rem;
   font-weight: 700;
+  letter-spacing: 0.05em;
   color: var(--text-title);
   margin-top: 2px;
 }
