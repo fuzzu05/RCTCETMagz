@@ -106,15 +106,26 @@
     if (teamGrid && MAGAZINE_CONFIG.credits && MAGAZINE_CONFIG.credits.leaders) {
       teamGrid.innerHTML = MAGAZINE_CONFIG.credits.leaders.map(m => `
         <div class="team-member-card">
-          <div style="width: 155px; height: 185px; margin: 0 auto 16px; border-radius: 20px; overflow: hidden; border: 2px solid var(--gold-border); box-shadow: var(--shadow-sm); background: #FAF7F2;">
-            <img src="${escapeHtml(m.photo)}" alt="${escapeHtml(m.name)}" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="member-photo-frame">
+            <img src="${escapeHtml(m.photo)}" alt="${escapeHtml(m.name)}" class="member-photo-img" loading="lazy">
           </div>
-          <span style="display: inline-block; padding: 4px 12px; border-radius: 100px; background: rgba(197, 155, 75, 0.12); color: var(--gold-dark); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">
+          <span class="member-badge">
             ${escapeHtml(m.badge)}
           </span>
           <h4 class="member-name">${escapeHtml(m.name)}</h4>
           <span class="member-role">${escapeHtml(m.role)}</span>
         </div>
+      `).join('');
+    }
+
+    // Render Supporting Team dynamically from data store
+    const supportingMembersContainer = document.querySelector('.supporting-team-members');
+    if (supportingMembersContainer && MAGAZINE_CONFIG.credits && MAGAZINE_CONFIG.credits.supporting) {
+      supportingMembersContainer.innerHTML = MAGAZINE_CONFIG.credits.supporting.map(s => `
+        <span class="supporting-member-pill">
+          <span class="gold-sparkle">✦</span>
+          <span>${escapeHtml(s.name)}</span>
+        </span>
       `).join('');
     }
   }

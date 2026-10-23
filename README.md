@@ -1,5 +1,5 @@
 # VALERIE — A Version in Seven
-> **RC TCET Official Annual Publication • 2024–2025**
+> **RC TCET Official Annual Publication • 2026–2027**
 > **Rotaract Club of Thakur College of Engineering & Technology (RID 3141)**
 
 A single-magazine launch landing page for **VALERIE**, the official annual magazine of RC TCET. 

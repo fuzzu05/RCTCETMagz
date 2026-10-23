@@ -12,7 +12,7 @@ const MAGAZINE_CONFIG = {
   editionTag: "Edition 7.1",
   subtitle: "A Version in Seven",
   tagline: "Where every perspective finds its place...",
-  tenure: "2024 - 2025",
+  tenure: "2026 - 2027",
   club: "Rotaract Club of TCET",
   district: "RID 3141 • Zone 1",
   sponsoringRotary: "Rotary Club of Mumbai Borivali East (Club ID: 215309)",
@@ -127,7 +127,7 @@ const MAGAZINE_CONFIG = {
     heading: "Editorial Preface",
     quote: "Valerie 7.1 is not just a publication; it is The Sevenfold Atlas. Each chapter mirrors an archway into student creativity, resilience, cultural vibrancy, and unwavering service.",
     note: "Brought to life by the Bulletin and Editorial Directorate of RC TCET, this edition embodies the essence of Meraki — pouring soul, creativity, and love into every story.",
-    signedBy: "Editorial Directorate • MERAKI 2024–25",
+    signedBy: "Editorial Directorate • MERAKI 2026–27",
     clubName: "Rotaract Club of TCET (RID 3141)",
     pageNumber: 5
   },
@@ -162,6 +162,7 @@ const MAGAZINE_CONFIG = {
       }
     ],
     supporting: [
+      { name: "Rtr. Fuzail Aqdas Khan", role: "Supporting Team" },
       { name: "Rtr. Shristi Vishwakarma", role: "Supporting Team" },
       { name: "Rtr. Anubhav Prasad", role: "Supporting Team" }
     ]
