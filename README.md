@@ -1,75 +1,63 @@
-# RC TCET — Digital Magazine Archive & Flipbooks
+# VALERIE — A Version in Seven
+> **RC TCET Official Annual Publication • 2024–2025**
 > **Rotaract Club of Thakur College of Engineering & Technology (RID 3141)**
 
-A landing page and interactive showcase for the official publications and annual editions of RC TCET. 
+A single-magazine launch landing page for **VALERIE**, the official annual magazine of RC TCET. 
 
-Designed with a **Deep Obsidian Black & Fury Orange** dark theme, interactive 3D perspective transforms, a scroll-coupled conveyor runway, academic tenure filtering, and instant redirection to **Heyzine digital flipbooks**.
+Designed with a **Warm Antique Linen & Parchment** palette, **Prismatic Iridescent** typography, arched lancet window story cards, real-time 3D physics book tilt, and seamless integration with **Heyzine digital flipbooks**.
 
 ---
 
-## 🌟 Key Features
+## 🧚 Features
 
-1. **3D Interactive Hero Spotlight Stage:**
-   - Features the latest flagship edition (*IGNITE*) with real-time physics mouse tilt (`perspective: 1400px`, dynamic lerp, and neon orange rim backlight).
-   - Instant "Read on Heyzine ↗" direct action.
+1. **Warm Parchment & Prismatic Aesthetics:**
+   - Eye-friendly, soft antique linen tone (`#F6F2EA`) inspired by the authentic magazine cover.
+   - Iridescent text shimmer on **VALERIE** mirroring the rainbow prism letters on the cover.
+   - Zero harsh glare, high-contrast velvet espresso typography (`#221E1B`).
 
-2. **Scroll-Driven 3D Infinite Runway:**
-   - As you scroll down the page, magazines glide smoothly across the screen on a 3D tilted rail (and reverses when scrolling up).
-   - Drag & touch-swipe support for mobile & tablet exploration.
-   - Click any card to launch the flipbook directly on Heyzine.
+2. **3D Floating Book Showcase:**
+   - Features the real **VALERIE** cover art with interactive mouse-follow 3D tilt physics (`perspective: 1400px`, smooth lerp, and soft golden ambient diffusion).
+   - Clicking anywhere on the book or CTA buttons launches the flipbook on **Heyzine**.
 
-3. **Academic Tenure & Year Filtering:**
-   - Sort editions by tenure (`2024 - 2025`, `2023 - 2024`, `2022 - 2023`).
-   - Instant real-time search filtering across titles, editions, and themes.
-   - Interactive 3D gyroscope/mouse tilt cards.
+3. **The Seven Arched Perspectives:**
+   - Arched lancet window cards echoing the seven windows on the cover:
+     - *Window 01: The Spectrum (Art & Colors)*
+     - *Window 02: The Grid (Tech & Global Network)*
+     - *Window 03: The Heritage (Wonders & History)*
+     - *Window 04: The Summit (Resilience & Altitudes)*
+     - *Window 05: The Symphony (Music & Verse)*
+     - *Window 06: The Phases (Mind & Reflection)*
+     - *Window 07: The Horizon (Earth & Tides)*
 
-4. **Dynamic In-Page Magazine Manager:**
-   - Click the **"+ Add Magazine"** button in the header or footer.
-   - Enter Magazine Title, Tenure/Year, Subtitle, Badge, and your **Heyzine Flipbook URL**.
-   - Pick from preset cover artworks or provide a custom cover URL.
-   - Instantly updates the showcase and persists to `localStorage`.
-   - Includes **"Export JSON"** to copy the updated catalog directly into your code repository.
+4. **Curated Sneak Peek & Editor's Desk:**
+   - Highlighting key page spreads and authentic behind-the-scenes student narratives.
+   - Student editorial creators board.
+
+5. **Smooth Scroll-Spy Navigation:**
+   - Active section indicator dynamically follows as you scroll or click between sections (`The Edition`, `7 Perspectives`, `Sneak Peek`, `Editor's Desk`, `Creators`).
+
+---
+
+## 📁 How to Update Details & Heyzine Link
+
+All text, links, and perspectives are neatly centralized in **`js/data.js`**:
+```javascript
+const MAGAZINE_CONFIG = {
+  title: "VALERIE",
+  subtitle: "A Version in Seven",
+  tagline: "Where every perspective finds its place...",
+  tenure: "2024 - 2025",
+  heyzineUrl: "https://heyzine.com/flip-book/your-actual-link",
+  // ...
+};
+```
+Simply edit `js/data.js` and push to GitHub!
 
 ---
 
 ## 🚀 Running Locally
 
-You can run this project with any local web server:
-
-### Option A: Python (Pre-installed)
 ```bash
 python -m http.server 5173
 ```
-Then visit: `http://localhost:5173`
-
-### Option B: Node.js / npx
-```bash
-npx serve .
-```
-
----
-
-## 📁 Project Structure
-
-```
-MagazineWeb/
-├── index.html            # Semantic HTML5 with 3D viewport and modals
-├── css/
-│   └── style.css         # Modern CSS design system (Dark + Fury Orange)
-├── js/
-│   ├── data.js           # Central magazine data store and Heyzine URLs
-│   └── app.js            # 3D tilt physics, scroll runway engine & manager
-├── assets/
-│   └── covers/           # Generated high-resolution magazine cover artworks
-│       ├── cover_ignite.jpg
-│       ├── cover_vanguard.jpg
-│       ├── cover_odyssey.jpg
-│       ├── cover_aura.jpg
-│       └── cover_genesis.jpg
-└── README.md
-```
-
----
-
-## 🔗 Heyzine Integration
-Whenever a visitor clicks any magazine cover or button (in the Hero, in the 3D Runway, or in the Catalog Grid), it automatically opens the corresponding **Heyzine Flipbook** URL in a new tab (`target="_blank" rel="noopener noreferrer"`).
+Visit: `http://localhost:5173`

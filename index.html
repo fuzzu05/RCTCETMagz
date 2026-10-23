@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RC TCET | Digital Magazine Archive & Flipbooks</title>
-  <meta name="description" content="Explore the official digital magazines and annual editions of the Rotaract Club of Thakur College of Engineering and Technology (RC TCET, RID 3141). Read online flipbooks on Heyzine.">
-  <meta name="theme-color" content="#0a0a0e">
+  <title>VALERIE 7.1 — A Version in Seven | RC TCET Official Magazine</title>
+  <meta name="description" content="VALERIE 7.1: A Version in Seven — Where every perspective finds its place. Official flagship publication of the Rotaract Club of TCET (RID 3141). Read the interactive digital flipbook on Heyzine.">
+  <meta name="theme-color" content="#F6F2EA">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Playfair Display (Luxury Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Ambient Background Glow Elements -->
-  <div class="hero-glow-orb orb-1" aria-hidden="true"></div>
-  <div class="hero-glow-orb orb-2" aria-hidden="true"></div>
+  <!-- Ambient Golden Glow -->
+  <div class="hero-fairy-glow" aria-hidden="true"></div>
 
   <!-- ========================================================================
        Header & Navigation Bar
@@ -27,81 +26,81 @@
   <header class="site-header" id="siteHeader">
     <div class="container nav-container">
       
-      <!-- Brand Logo -->
-      <a href="#" class="brand-logo" id="brandLogo" aria-label="RC TCET Home">
-        <div class="logo-badge">
-          <div class="logo-badge-inner">
-            <!-- Flame Icon SVG -->
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2c-.6 0-1.1.3-1.4.8C9.4 4.8 7 9.2 7 13c0 2.8 2.2 5 5 5s5-2.2 5-5c0-3.8-2.4-8.2-3.6-10.2-.3-.5-.8-.8-1.4-.8zm0 4.2c1 1.7 3 5.3 3 6.8 0 1.7-1.3 3-3 3s-3-1.3-3-3c0-1.5 2-5.1 3-6.8z"/>
-              <path d="M12 10c-.3 0-.6.1-.8.4-.7 1-1.2 2.3-1.2 3.6 0 1.1.9 2 2 2s2-.9 2-2c0-1.3-.5-2.6-1.2-3.6-.2-.3-.5-.4-.8-.4z" opacity="0.8"/>
-            </svg>
-          </div>
+      <!-- Brand Emblem & Title -->
+      <a href="#hero" class="brand-logo" aria-label="VALERIE 7.1 Home">
+        <div class="brand-emblem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+            <line x1="16" y1="8" x2="2" y2="22"></line>
+            <line x1="17.5" y1="15" x2="9" y2="15"></line>
+          </svg>
         </div>
-        <div class="brand-text">
+        <div class="brand-info">
           <span class="brand-title">RC TCET</span>
-          <span class="brand-subtitle">RID 3141 • Digital Press</span>
+          <span class="brand-subtitle">RID 3141 • MERAKI PRESS</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <ul class="nav-links">
-        <li><a href="#hero" class="nav-link active">Featured</a></li>
-        <li><a href="#runway" class="nav-link">3D Runway</a></li>
-        <li><a href="#archive" class="nav-link">All Editions</a></li>
-        <li><a href="#editorial" class="nav-link">About Club</a></li>
+      <!-- Desktop Navigation with Active Scroll-Spy -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active">The Edition</a></li>
+        <li><a href="#perspectives" class="nav-link">The 7 Perspectives</a></li>
+        <li><a href="#contents" class="nav-link">Sevenfold Atlas</a></li>
+        <li><a href="#editorial" class="nav-link">Preface</a></li>
+        <li><a href="#credits" class="nav-link">Credits & Team</a></li>
       </ul>
 
       <!-- Action Button -->
       <div class="nav-actions">
-        <button class="nav-cta-btn" id="openAddModalBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
+        <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="nav-cta-btn" id="headerHeyzineBtn">
+          <span>Read on Heyzine</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
           </svg>
-          <span>Add Magazine</span>
-        </button>
+        </a>
       </div>
 
     </div>
   </header>
 
   <!-- ========================================================================
-       Hero Section: 3D Spotlight Stage
+       Hero Section: 3D Valerie 7.1 Spotlight Stage
        ======================================================================== -->
   <section class="hero-section" id="hero">
     <div class="container">
       <div class="hero-grid">
         
-        <!-- Left: Editorial Pitch & Metrics -->
+        <!-- Left Column: Editorial Presentation -->
         <div class="hero-content">
-          <div class="hero-badge-pill">
-            <span class="pulse-dot"></span>
-            <span>Official Publications • RID 3141</span>
+          <div class="hero-kicker">
+            <span class="sparkle-icon">✦</span>
+            <span>Annual Flagship Publication • Edition 7.1</span>
           </div>
 
           <h1 class="hero-title">
-            Words that Ignite. <br>
-            <span class="highlight-orange">Stories that Inspire.</span>
+            <span class="title-prismatic">VALERIE 7.1</span>
           </h1>
+          <div class="hero-tagline">A Version in Seven — where every perspective finds its place...</div>
 
           <p class="hero-description">
-            Welcome to the digital publication vault of the <strong>Rotaract Club of TCET</strong>. 
-            Immerse yourself in student-led journalism, tech explorations, and social impact chronicles. 
-            <strong>Click any magazine</strong> to launch the interactive flipbook directly on Heyzine.
+            Welcome to the official launch of <strong>VALERIE 7.1</strong>, curated by the <strong>Rotaract Club of TCET</strong>. 
+            Through seven distinct arched perspectives—from canvas art and architectural wonders to mountain summits, lunar orbits, and oceanic currents—our student fellowship unites in one timeless publication. 
+            <strong>Click the magazine</strong> to open the full interactive flipbook directly on Heyzine.
           </p>
 
           <div class="hero-cta-group">
-            <a href="https://heyzine.com/flip-book/sample-ignite-rc-tcet" target="_blank" rel="noopener noreferrer" class="btn-primary" id="heroFlagshipBtn">
-              <span>Read Latest Edition (IGNITE)</span>
+            <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="btn-primary" id="heroHeyzineBtn">
+              <span>Read Flipbook on Heyzine</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
             </a>
-            <a href="#runway" class="btn-secondary">
-              <span>Explore 3D Runway</span>
+            <a href="#contents" class="btn-secondary">
+              <span>View Sevenfold Atlas</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <polyline points="19 12 12 19 5 12"></polyline>
@@ -109,35 +108,39 @@
             </a>
           </div>
 
-          <!-- Quick Metrics -->
+          <!-- Quick Metrics Strip -->
           <div class="hero-metrics">
             <div class="metric-item">
-              <span class="metric-value">08<span>+</span></span>
-              <span class="metric-label">Online Flipbooks</span>
+              <span class="metric-value">07</span>
+              <span class="metric-label">Core Perspectives</span>
             </div>
             <div class="metric-item">
-              <span class="metric-value">3<span> Tenures</span></span>
-              <span class="metric-label">2022 — 2025 Archive</span>
+              <span class="metric-value">52</span>
+              <span class="metric-label">Illustrated Pages</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">16</span>
+              <span class="metric-label">Curated Chapters</span>
             </div>
             <div class="metric-item">
               <span class="metric-value">100<span>%</span></span>
-              <span class="metric-label">Student Created</span>
+              <span class="metric-label">Student Driven</span>
             </div>
           </div>
         </div>
 
-        <!-- Right: 3D Interactive Physical Book Showcase -->
+        <!-- Right Column: 3D Interactive Physical Book Showcase -->
         <div class="hero-spotlight-stage">
-          <a href="https://heyzine.com/flip-book/sample-ignite-rc-tcet" target="_blank" rel="noopener noreferrer" class="spotlight-book-wrapper" id="spotlightBook" title="Click to open IGNITE on Heyzine">
+          <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="spotlight-book-wrapper" id="spotlightBook" title="Click to open VALERIE 7.1 on Heyzine">
             <div class="spotlight-book-glow"></div>
             
             <div class="spotlight-book">
-              <!-- Book Spine for 3D depth -->
+              <!-- Physical Book Spine for 3D Depth -->
               <div class="book-spine"></div>
               
-              <!-- Front Cover -->
+              <!-- Front Cover with the User's Real Valerie Image -->
               <div class="book-front">
-                <img src="assets/covers/cover_ignite.jpg" alt="RC TCET IGNITE Magazine Cover" id="heroSpotlightCover">
+                <img src="assets/covers/cover_valerie.jpg" alt="VALERIE 7.1 Magazine Cover - RC TCET" id="valerieHeroCover">
                 <div class="book-glare"></div>
               </div>
 
@@ -147,8 +150,8 @@
               <!-- Floating Tag -->
               <div class="book-float-tag">
                 <div class="book-tag-info">
-                  <span class="book-tag-year" id="heroSpotlightYear">2024 - 2025</span>
-                  <span class="book-tag-title" id="heroSpotlightTitle">IGNITE • Flagship</span>
+                  <span class="book-tag-year">Edition 7.1 • 2024–2025</span>
+                  <span class="book-tag-title">VALERIE 7.1</span>
                 </div>
                 <span class="book-tag-btn">
                   <span>Heyzine</span>
@@ -167,249 +170,154 @@
   </section>
 
   <!-- ========================================================================
-       Section 2: 3D Scroll-Driven Infinite Runway (Conveyor Belt)
+       Section 2: The Seven Perspectives (Arched Lancet Windows)
        ======================================================================== -->
-  <section class="runway-section" id="runway">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-pill">
-          <span>Scroll-Driven 3D Conveyor</span>
-        </div>
-        <h2 class="section-title">The Infinite Runway</h2>
-        <p class="section-subtitle">
-          Scroll down to glide through editions • Scroll up to reverse • Click any magazine to launch flipbook on Heyzine
-        </p>
-
-        <!-- Direction indicator widget -->
-        <div class="scroll-indicator-widget" id="scrollIndicator">
-          <span class="arrow-icon">↓</span>
-          <span id="scrollIndicatorText">Scrolling Down (Gliding Forward)</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3D Perspective Viewport & Horizontal Moving Track -->
-    <div class="runway-perspective-viewport" id="runwayViewport">
-      <div class="runway-track" id="runwayTrack">
-        <!-- Rendered dynamically by js/app.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       Section 3: Year-by-Year Magazine Showcase Grid
-       ======================================================================== -->
-  <section class="archive-section" id="archive">
+  <section class="perspectives-section" id="perspectives">
     <div class="container">
       
       <div class="section-header">
-        <div class="section-pill">
-          <span>Complete Catalog</span>
+        <div class="section-kicker">
+          <span>The Arches of Valerie</span>
         </div>
-        <h2 class="section-title">Magazines by Year & Tenure</h2>
+        <h2 class="section-title">The Seven Perspectives</h2>
         <p class="section-subtitle">
-          Filter by academic tenure or search by edition title. Every card is linked directly to its Heyzine flipbook.
+          Echoing the seven arched lancet windows of our cover, each chapter reveals a unique dimension of campus life, artistry, and youth fellowship.
         </p>
       </div>
 
-      <!-- Filter Controls & Search -->
-      <div class="archive-toolbar">
-        <div class="year-filter-tabs" id="yearFilterTabs">
-          <button class="year-tab-btn active" data-year="all">All Tenures</button>
-          <button class="year-tab-btn" data-year="2024 - 2025">2024 - 2025</button>
-          <button class="year-tab-btn" data-year="2023 - 2024">2023 - 2024</button>
-          <button class="year-tab-btn" data-year="2022 - 2023">2022 - 2023</button>
-        </div>
-
-        <div class="search-input-wrapper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" class="search-input" id="magazineSearchInput" placeholder="Search by name, edition or theme..." aria-label="Search magazines">
-        </div>
-      </div>
-
-      <!-- Magazines Grid -->
-      <div class="magazines-grid" id="magazinesGrid">
-        <!-- Rendered dynamically by js/app.js -->
+      <div class="perspectives-grid" id="perspectivesGrid">
+        <!-- Rendered dynamically by js/app.js from MAGAZINE_CONFIG -->
       </div>
 
     </div>
   </section>
 
   <!-- ========================================================================
-       Section 4: About RC TCET Press
+       Section 3: The Sevenfold Atlas (Table of Contents)
        ======================================================================== -->
-  <section class="about-section" id="editorial" style="padding: 80px 0; border-top: 1px solid var(--border-subtle); background: #0c0d13;">
+  <section class="contents-section" id="contents" style="padding: 100px 0 110px; position: relative;">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-        <div>
-          <div class="section-pill">
-            <span>Rotaract Club of TCET</span>
+      
+      <div class="section-header">
+        <div class="section-kicker">
+          <span>Table of Contents</span>
+        </div>
+        <h2 class="section-title">The Sevenfold Atlas</h2>
+        <p class="section-subtitle">
+          Explore the chronological chapters and narratives of Valerie 7.1. Click any entry to open the flipbook directly.
+        </p>
+      </div>
+
+      <!-- Table of Contents Layout -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; max-width: 1080px; margin: 0 auto 50px;">
+        
+        <!-- Left Column: Chapters List -->
+        <div class="toc-list-card" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-card); border-radius: 24px; padding: 36px 32px; box-shadow: var(--shadow-sm);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-title); margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);">
+            Chapters & Foundations
+          </h3>
+          <ul id="tocListLeft" style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+            <!-- Rendered by js/app.js -->
+          </ul>
+        </div>
+
+        <!-- Right Column: Chapters List & Highlights -->
+        <div class="toc-list-card" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-card); border-radius: 24px; padding: 36px 32px; box-shadow: var(--shadow-sm);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-title); margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);">
+            Chronicles & Epilogue
+          </h3>
+          <ul id="tocListRight" style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+            <!-- Rendered by js/app.js -->
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Sneak Peek Launch Banner -->
+      <div class="sneakpeek-banner-cta">
+        <div class="sneakpeek-banner-info">
+          <h3>Ready to turn the pages?</h3>
+          <p>Experience the complete 52-page interactive flipbook complete with page-turn sound and animations on Heyzine.</p>
+        </div>
+        <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="btn-primary" id="bannerHeyzineBtn">
+          <span>Open Full Flipbook ↗</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Section 4: Editorial Preface
+       ======================================================================== -->
+  <section class="editors-desk-section" id="editorial">
+    <div class="container">
+      <div class="editors-desk-card">
+        <div class="quote-decor" aria-hidden="true">“</div>
+        <div class="editors-desk-content">
+          <div class="section-kicker" style="margin-bottom: 16px;">
+            <span>Editorial Preface</span>
           </div>
-          <h2 style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; margin-bottom: 16px;">
-            Empowering Voices, <br><span class="highlight-orange">Chronicle by Chronicle</span>
-          </h2>
-          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px;">
-            The editorial wing of <strong>RC TCET (Rotary International District 3141)</strong> provides a creative canvas for engineers, visionaries, and social changemakers at Thakur College of Engineering & Technology, Mumbai. 
+          <blockquote class="editors-desk-quote" id="editorsDeskQuote">
+            "Valerie 7.1 is not just a publication; it is The Sevenfold Atlas. Each chapter mirrors an archway into student creativity, resilience, cultural vibrancy, and unwavering service."
+          </blockquote>
+          <p class="editors-desk-note" id="editorsDeskNote">
+            Brought to life by the Bulletin and Editorial Directorate of RC TCET, this edition embodies the essence of <em>Meraki</em> — pouring soul, creativity, and love into every story, from assignment vivas to late-night club room sessions.
           </p>
-          <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 30px;">
-            Every edition is planned, curated, and produced by students, combining rigorous journalism, cutting-edge engineering discourse, and impactful social narratives.
-          </p>
-          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-            <button class="btn-primary" id="openAddModalBtn2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
-              <span>Add New Edition</span>
-            </button>
-            <a href="https://www.rotaracttcet.com" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-              <span>Visit Club Website ↗</span>
+          <div class="editors-desk-signoff">
+            <div>
+              <div class="signoff-name" id="signoffName">Editorial Directorate • MERAKI 2024–25</div>
+              <div class="signoff-club" id="signoffClub">Rotaract Club of TCET (RID 3141)</div>
+            </div>
+            <a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 10px 22px; font-size: 0.9rem;">
+              <span>Read Preface in Flipbook ↗</span>
             </a>
           </div>
         </div>
-
-        <div style="background: rgba(18, 19, 27, 0.7); border: 1px solid var(--orange-border); border-radius: 18px; padding: 32px; box-shadow: var(--shadow-lg);">
-          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 18px; color: #fff;">
-            How Heyzine Integration Works
-          </h3>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; color: var(--text-secondary); font-size: 0.95rem;">
-            <li style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="color: var(--orange-bright); font-weight: 800;">01</span>
-              <span><strong>Click Any Card:</strong> Clicking on any magazine cover immediately opens your hosted Heyzine flipbook in a new tab.</span>
-            </li>
-            <li style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="color: var(--orange-bright); font-weight: 800;">02</span>
-              <span><strong>Dynamic Year Filtering:</strong> Quickly sort past editions by tenure (2024-25, 2023-24, 2022-23).</span>
-            </li>
-            <li style="display: flex; gap: 12px; align-items: flex-start;">
-              <span style="color: var(--orange-bright); font-weight: 800;">03</span>
-              <span><strong>In-Page Editor:</strong> Add new editions directly via the "Add Magazine" button. Updates are saved locally and can be exported as JSON to update Git!</span>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ========================================================================
-       Dynamic "+ Add / Update Magazine" Modal
+       Section 5: Credits & Editorial Team
        ======================================================================== -->
-  <div class="modal-backdrop" id="addMagazineModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-dialog">
+  <section class="team-section" id="credits">
+    <div class="container">
       
-      <div class="modal-header">
-        <div class="modal-title-group">
-          <div class="modal-title-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-            </svg>
-          </div>
-          <div>
-            <h3 class="modal-title" id="modalTitle">Add Magazine to Showcase</h3>
-            <span class="modal-subtitle">Display tenure, name, cover, and Heyzine redirection URL</span>
-          </div>
+      <div class="section-header">
+        <div class="section-kicker">
+          <span>Credits</span>
         </div>
-        <button class="modal-close-btn" id="closeAddModalBtn" aria-label="Close dialog">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+        <h2 class="section-title">The Editorial Creators</h2>
+        <p class="section-subtitle">
+          The visionary leaders, designers, and curators behind the making of Valerie 7.1.
+        </p>
       </div>
 
-      <form id="addMagazineForm">
-        <div class="modal-body">
-          
-          <!-- Title & Year Row -->
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="magTitleInput">Magazine Title *</label>
-              <input type="text" class="form-input" id="magTitleInput" placeholder="e.g. IGNITE, VANGUARD" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="magYearInput">Tenure / Year *</label>
-              <input type="text" class="form-input" id="magYearInput" placeholder="e.g. 2024 - 2025" required>
-            </div>
-          </div>
+      <!-- Core Leadership Grid (With Real Photos) -->
+      <div class="team-grid" id="teamGrid" style="margin-bottom: 45px;">
+        <!-- Rendered dynamically by js/app.js -->
+      </div>
 
-          <!-- Subtitle & Badge Row -->
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="magSubtitleInput">Edition Subtitle</label>
-              <input type="text" class="form-input" id="magSubtitleInput" placeholder="e.g. Annual Flagship Edition">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="magBadgeInput">Badge Pill</label>
-              <input type="text" class="form-input" id="magBadgeInput" placeholder="e.g. Latest Issue, Tech Special">
-            </div>
-          </div>
-
-          <!-- Heyzine URL -->
-          <div class="form-group">
-            <label class="form-label" for="magHeyzineInput">
-              Heyzine Flipbook URL *
-              <span>(Click redirects here)</span>
-            </label>
-            <input type="url" class="form-input" id="magHeyzineInput" placeholder="https://heyzine.com/flip-book/your-edition-slug" required>
-            <span class="form-hint">Tip: Paste any public Heyzine flipbook URL or online PDF link.</span>
-          </div>
-
-          <!-- Tagline / Theme -->
-          <div class="form-group">
-            <label class="form-label" for="magThemeInput">Theme / Tagline</label>
-            <input type="text" class="form-input" id="magThemeInput" placeholder="e.g. Innovation • Leadership • Youth Action">
-          </div>
-
-          <!-- Choose Cover Preset or Custom Image URL -->
-          <div class="form-group">
-            <label class="form-label">
-              Select Cover Artwork
-              <span>(Click to choose preset)</span>
-            </label>
-            
-            <div class="preset-covers-selector" id="presetCoversSelector">
-              <!-- Rendered by js/app.js -->
-            </div>
-
-            <div style="margin-top: 10px;">
-              <input type="text" class="form-input" id="magCustomCoverInput" placeholder="Or enter custom image URL...">
-            </div>
-          </div>
-
+      <!-- Supporting Team Card -->
+      <div class="supporting-team-banner" style="max-width: 680px; margin: 0 auto; text-align: center; background: var(--bg-surface-elevated); border: 1px solid var(--border-card); border-radius: 20px; padding: 28px 24px; box-shadow: var(--shadow-sm);">
+        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--gold-dark); margin-bottom: 12px; letter-spacing: 0.04em;">
+          Supporting Team
+        </h4>
+        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; font-size: 1.05rem; font-weight: 600; color: var(--text-title);">
+          <span style="display: inline-flex; align-items: center; gap: 8px;">
+            <span style="color: var(--gold-primary);">✦</span>
+            <span>Rtr. Shristi Vishwakarma</span>
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 8px;">
+            <span style="color: var(--gold-primary);">✦</span>
+            <span>Rtr. Anubhav Prasad</span>
+          </span>
         </div>
-
-        <div class="modal-footer">
-          <div class="modal-footer-left">
-            <button type="button" class="btn-ghost-danger" id="resetDefaultsBtn" title="Reset catalog to initial state">
-              Reset Defaults
-            </button>
-            <button type="button" class="btn-ghost-secondary" id="exportDataBtn" title="Copy JSON configuration">
-              Export JSON
-            </button>
-          </div>
-          <button type="submit" class="btn-primary">
-            <span>Add to Showcase</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </button>
-        </div>
-      </form>
+      </div>
 
     </div>
-  </div>
-
-  <!-- Toast Notification -->
-  <div class="toast-notice" id="toastNotice" role="alert" aria-live="polite">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange-bright)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
-    <span id="toastMessage">Magazine updated successfully!</span>
-  </div>
+  </section>
 
   <!-- ========================================================================
        Footer
@@ -420,39 +328,40 @@
         
         <div class="footer-about">
           <div class="brand-logo" style="margin-bottom: 14px;">
-            <div class="logo-badge" style="width: 36px; height: 36px;">
-              <div class="logo-badge-inner">
-                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px; color: var(--orange-neon);">
-                  <path d="M12 2c-.6 0-1.1.3-1.4.8C9.4 4.8 7 9.2 7 13c0 2.8 2.2 5 5 5s5-2.2 5-5c0-3.8-2.4-8.2-3.6-10.2-.3-.5-.8-.8-1.4-.8zm0 4.2c1 1.7 3 5.3 3 6.8 0 1.7-1.3 3-3 3s-3-1.3-3-3c0-1.5 2-5.1 3-6.8z"/>
-                </svg>
-              </div>
+            <div class="brand-emblem" style="width: 36px; height: 36px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
+                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                <line x1="16" y1="8" x2="2" y2="22"></line>
+              </svg>
             </div>
-            <div class="brand-text">
+            <div class="brand-info">
               <span class="brand-title" style="font-size: 1.2rem;">RC TCET</span>
             </div>
           </div>
           <p>
             Rotaract Club of Thakur College of Engineering and Technology.<br>
-            Rotary International District 3141, Zone 1, Mumbai, Maharashtra, India.
+            Rotary International District 3141 • Rotary Club of Mumbai Borivali East (Club ID: 215309).<br>
+            Kandivali (E), Mumbai, Maharashtra, India.
           </p>
         </div>
 
         <div class="footer-links-col">
-          <h4 class="footer-links-title">Quick Links</h4>
+          <h4 class="footer-links-title">Quick Navigation</h4>
           <ul class="footer-nav-list">
-            <li><a href="#hero">Featured Issue</a></li>
-            <li><a href="#runway">3D Conveyor Runway</a></li>
-            <li><a href="#archive">Year-by-Year Archive</a></li>
-            <li><a href="#editorial">About Editorial</a></li>
+            <li><a href="#hero">The Edition</a></li>
+            <li><a href="#perspectives">The 7 Perspectives</a></li>
+            <li><a href="#contents">The Sevenfold Atlas</a></li>
+            <li><a href="#editorial">Editorial Preface</a></li>
+            <li><a href="#credits">Credits & Creators</a></li>
           </ul>
         </div>
 
         <div class="footer-links-col">
-          <h4 class="footer-links-title">Connect with RC TCET</h4>
+          <h4 class="footer-links-title">Connect & Read</h4>
           <ul class="footer-nav-list">
-            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+            <li><a href="https://heyzine.com/flip-book/33f2b2b6b6.html" target="_blank" rel="noopener noreferrer">Valerie 7.1 on Heyzine ↗</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">RC TCET Instagram ↗</a></li>
             <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
-            <li><a href="https://heyzine.com" target="_blank" rel="noopener noreferrer">Heyzine Flipbooks ↗</a></li>
             <li><a href="mailto:editorial@rctcet.org">editorial@rctcet.org</a></li>
           </ul>
         </div>
@@ -461,10 +370,10 @@
 
       <div class="footer-bottom">
         <div>
-          © 2026 <strong>Rotaract Club of TCET</strong>. All Rights Reserved.
+          © 2024–2025 <strong>Rotaract Club of TCET</strong>. All Rights Reserved.
         </div>
         <div>
-          Crafted with <strong>Fury Orange & Deep Obsidian</strong> • Flipbooks hosted via Heyzine
+          <strong>VALERIE 7.1</strong>: A Version in Seven • Hosted via Heyzine
         </div>
       </div>
     </div>
